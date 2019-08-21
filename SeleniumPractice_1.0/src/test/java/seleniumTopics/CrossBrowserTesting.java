@@ -26,7 +26,7 @@ public class CrossBrowserTesting {
 		
 		  System.setProperty("webdriver.gecko.driver", "C:\\Users\\aa\\Downloads\\geckodriver-v0.24.0-win64\\geckodriver.exe");
 		  driver=new FirefoxDriver();
-		  driver.manage().window().maximize();
+		  
 		  driver.get("http://hugelearning.com/iframe-practice-page/");
 	}
 	  
