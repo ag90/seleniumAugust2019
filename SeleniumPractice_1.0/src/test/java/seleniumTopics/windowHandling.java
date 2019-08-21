@@ -1,0 +1,111 @@
+package seleniumTopics;
+
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class windowHandling {
+	
+	WebDriver driver;
+	
+  @Test
+  public void f() {
+	  
+	  System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+	  driver=new ChromeDriver();
+	  driver.manage().window().maximize();
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		 
+	 
+	 /* driver.get("https://www.naukri.com/hr-recruiters-consultants");
+	  
+	  String Parent_Window=driver.getWindowHandle();
+	  System.out.println(Parent_Window);
+	  
+	  driver.findElement(By.xpath("//div[contains(text(),'Jobs')]")).click();
+	  
+	  //First method of window handling
+	  
+	  Set<String> Multiple_Windows= driver.getWindowHandles();
+	  System.out.println(Multiple_Windows);
+	  int Total_Windows=Multiple_Windows.size();
+	  System.out.println(Total_Windows);
+	 
+	  for (String Browse_Jobs_by_window : Multiple_Windows) {
+		  
+	 
+	  if (!Parent_Window.equalsIgnoreCase(Browse_Jobs_by_window)) {
+		  
+		  driver.switchTo().window(Browse_Jobs_by_window);
+		  String Title=driver.getTitle();
+		  System.out.println(Title);
+		  driver.findElement(By.xpath("//div[contains(text(),'Services')]")).click();
+		  
+	 }
+  }
+	  
+	  Set<String> Multiple_Windows1= driver.getWindowHandles();
+	  System.out.println(Multiple_Windows1);
+	  int Total_Windows1=Multiple_Windows1.size();
+	  System.out.println(Total_Windows1);
+	  
+	  
+	  for (String Browse_Jobs_by_window : Multiple_Windows1) {
+		
+		  driver.switchTo().window(Browse_Jobs_by_window);
+		  
+		  if(driver.getTitle().contentEquals("HR Manager - HR Executive - HR Recruiter Consultants - Naukri.com"))
+		  {
+			  
+			  String Title=driver.getTitle();
+			  System.out.println(Title);
+		  }
+	}
+	*/  
+	  
+	  
+	  //Second method of window handling
+	 
+	  driver.get("https://www.naukri.com/");
+	  
+	  String Parent_Window=driver.getWindowHandle();
+	  System.out.println(Parent_Window);
+	  
+	  Set<String> Multiple_Windows1= driver.getWindowHandles();
+	  System.out.println(Multiple_Windows1);
+	  int Total_Windows1=Multiple_Windows1.size();
+	  System.out.println(Total_Windows1);
+	  
+	  
+	  for (String Browse_Jobs_by_window : Multiple_Windows1) {
+		
+		  driver.switchTo().window(Browse_Jobs_by_window);
+		  
+		  if(driver.getTitle().contentEquals("Amazon"))
+		  {
+			  
+			  String Title=driver.getTitle();
+			  System.out.println(Title);
+		  }
+	}
+	  
+	  
+	  
+	  driver.switchTo().window(Parent_Window);
+	  String parentTitle=driver.getTitle();
+	  System.out.println(parentTitle);
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+		 
+  }
+}

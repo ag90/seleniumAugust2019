@@ -1,0 +1,81 @@
+package seleniumTopics;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class Xpath {
+	
+	WebDriver driver;
+	
+  @Test
+  public void f() throws InterruptedException {
+	  
+	  
+	 System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+	 driver=new ChromeDriver();
+	 driver.manage().window().maximize();
+	 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	 
+	 driver.get("http://demo.guru99.com/v1/");
+	 
+	 //contains function
+	 boolean User_Text=driver.findElement(By.xpath("//h2[contains(text(),'Gtpl Bank')]")).isDisplayed();
+	 System.out.println(User_Text);
+	 
+	
+	 //or function
+	 boolean Login_Button=driver.findElement(By.xpath("//input[@name='btnLogin' or @value='LOGIN']")).isDisplayed();
+	 System.out.println(Login_Button);
+	 
+	 
+	 //and function
+	 boolean Reset_Button=driver.findElement(By.xpath("//input[@name='btnReset' and @value='RESET'] ")).isDisplayed();
+	 System.out.println(Reset_Button);
+	 
+	//starts-with
+	 boolean Password_Textbox=driver.findElement(By.xpath("//input[starts-with(@name,'pas')]")).isDisplayed();
+	 System.out.println(Password_Textbox);
+	 
+	 //text
+	 boolean UserName_TextBox=driver.findElement(By.xpath("//td[text()='UserID']")).isDisplayed();
+	 System.out.println(UserName_TextBox);
+	 
+	 driver.get("https://www.guru99.com/");
+	 
+	 Thread.sleep(2000);
+	 
+	 //following-sibling
+	 boolean Selenium=driver.findElement(By.xpath("//li[@class='fa fa-chevron-circle-right']//following-sibling::li[2]//a[contains(text(),'Selenium')]")).isDisplayed();
+	 System.out.println(Selenium);
+	 
+	 
+	 //preceding-sibling
+	 boolean Practise_Test=driver.findElement(By.xpath("//div[@class='g-block box4 size-17 hidden-tablet']//preceding-sibling::div[3]//a[contains(text(),'PractiTest')]")).isDisplayed();
+	 System.out.println(Practise_Test);
+	 
+	 driver.get("http://demo.guru99.com/v1/index.php#");
+	 
+	 //Descendant
+	 boolean Insurance_Project=driver.findElement(By.xpath("//ul[@class='nav navbar-nav']//descendant::li[23]")).isDisplayed();
+	 System.out.println(Insurance_Project);
+	 
+	 
+	 //Last
+	 boolean Payment_Gateway=driver.findElement(By.xpath("(//li[@class='dropdown'])[last()-1]")).isDisplayed();
+	 System.out.println(Payment_Gateway);
+	 
+	 //position
+	 boolean Agile=driver.findElement(By.xpath("//li[@class='dropdown'][position()=4]")).isDisplayed();
+	 System.out.println(Agile);
+	 
+	 
+	 driver.findElement(By.xpath("//span[contains(text(),'Home')] | //span[contains(text(),'11')]")).click();
+	 
+	
+  }
+}

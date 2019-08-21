@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"> 
+
+<suite name="GroupsClassExecution">
+
+<test name="LoginPageExecution">
+
+<groups>
+
+<run>
+
+<include name="HomePageGroup">
+
+</include>
+
+<exclude name="LoginPageGroup">
+
+
+</exclude>
+
+</run>
+
+</groups>
+
+<classes>
+
+<class name="seleniumTopics.TestNGGroups">
+
+
+</class>
+
+</classes>
+
+
+</test>
+
+
+</suite>

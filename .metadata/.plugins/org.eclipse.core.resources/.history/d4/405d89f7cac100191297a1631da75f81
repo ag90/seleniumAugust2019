@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"> 
+
+<suite name="parallal_Testing" parallel="methods" thread-count="6">
+
+<test name="parallal_Testing">
+
+<classes>
+
+<class name="seleniumTopics.parallal_Testing">
+
+</class>
+
+</classes>
+
+</test>
+
+</suite>

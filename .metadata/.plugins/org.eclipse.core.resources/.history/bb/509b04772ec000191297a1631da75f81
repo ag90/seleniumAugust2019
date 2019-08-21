@@ -1,0 +1,13 @@
+package seleniumTopics;
+
+public class TakingScreenShot {
+  
+
+	public void Failure()
+	{
+		
+		
+		
+	}
+	
+}

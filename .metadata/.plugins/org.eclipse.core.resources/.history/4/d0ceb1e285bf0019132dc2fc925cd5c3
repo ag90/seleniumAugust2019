@@ -1,0 +1,55 @@
+package seleniumTopics;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class TestNGDataProviders {
+	
+	WebDriver driver;
+	
+	@BeforeMethod
+	public void BrowserLaunch()
+	{
+		 System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+		  driver=new ChromeDriver();
+		  driver.manage().window().maximize();
+		  driver.get("https://freecrm.com/");
+		  
+	}
+	
+  @Test(dataProvider="TestDataSupply")
+  public void f(String UserName,String Password) throws InterruptedException {
+	 
+	  Thread.sleep(2000);
+      driver.findElement(By.xpath("//a[contains(text(),'Log')]")).click();      
+      driver.findElement(By.name("email")).sendKeys(UserName);
+      driver.findElement(By.name("password")).sendKeys(Password);
+      driver.findElement(By.xpath("//div[contains(text(),'Log')]")).click();
+      
+  }
+  
+  
+  @DataProvider(name="TestDataSupply")
+  public static Object[][] DataDriven()
+  {
+	  
+	  Object[][] Data=new Object[3][2];
+	  
+	  Data[0][0]="Avi403@amarpaliprincley.com";
+	  Data[0][1]="Avi@1234";
+	  
+	  Data[1][0]="Rishab403@amarpaliprincley.com";
+	  Data[1][1]="Rishab@1234";
+	  
+	  Data[2][0]="Abhay403@amarpaliprincley.com";
+	  Data[2][1]="Abhay@1234";
+	  
+	  return Data;
+  }
+  
+  
+}

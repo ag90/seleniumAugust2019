@@ -1,0 +1,9 @@
+package seleniumTopics;
+
+import org.testng.annotations.Test;
+
+public class CustomeListener {
+  @Test
+  public void f() {
+  }
+}

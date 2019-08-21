@@ -1,0 +1,21 @@
+package seleniumTopics;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class CrossBrowserTesting {
+	
+	
+  @Test
+  @Parameters({"Browser"})
+  public void f(String Browser) {
+	  
+	  if (Browser.equalsIgnoreCase("browser")) 
+	  {
+		  
+		  
+		
+	}
+	  
+  }
+}

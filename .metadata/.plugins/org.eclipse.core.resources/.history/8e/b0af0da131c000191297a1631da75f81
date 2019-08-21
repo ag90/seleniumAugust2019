@@ -1,0 +1,23 @@
+package seleniumTopics;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+public class  TakingScreenShot {
+  
+	static WebDriver driver;
+
+	public static void Failure(String FailureScreenshot) throws IOException
+	{
+		
+		File file=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(file, new File(".//Taking_Screenshot//"+FailureScreenshot+".png"));
+		
+	}
+	
+}

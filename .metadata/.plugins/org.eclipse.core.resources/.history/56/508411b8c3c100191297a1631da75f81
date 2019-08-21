@@ -1,0 +1,82 @@
+package seleniumTopics;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class SeleniumCommonMethod {
+
+	WebDriver driver;
+	  @Test 
+	  public void f() throws InterruptedException {
+		  
+		  System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
+		  driver=new ChromeDriver();
+		  driver.get("https://www.google.com");
+		  
+		  String Title_1st_Method=driver.getTitle();//To get the page of title 1st method
+		  System.out.println(Title_1st_Method);
+		  
+		  String Title_2nd_Method=driver.findElement(By.tagName("title")).getAttribute("textContent");
+		  System.out.println(Title_2nd_Method);
+		 
+		  WebElement GMailLink=driver.findElement(By.xpath("//a[contains(text(),'Gmail')]"));
+		  String GMailLink_Text=GMailLink.getText();//To get Webelement text.
+		  System.out.println("GMailLink_Text : " + GMailLink_Text);
+		  
+		  WebElement ImagesLink=driver.findElement(By.xpath("//a[contains(text(),'Images')]"));
+		  String ImagesLinkAttribute=ImagesLink.getAttribute("class");//To get attribute or element text like: name or id value
+		  System.out.println("ImagesLinkAttribute : " + ImagesLinkAttribute);
+		  
+		  String GetAtrribute_TextContent=ImagesLink.getAttribute("textContent");
+		  System.out.println(GetAtrribute_TextContent);
+		  
+		  driver.manage().window().maximize();//To maximize the browser
+		  
+		  driver.manage().deleteAllCookies();//To delete the existing cookies
+		  
+		  driver.get("https://register.freecrm.com/register/");
+		  
+		  boolean IsDisplayed=driver.findElement(By.xpath("//button[contains(text(),'Sign Up')]")).isDisplayed();
+		  System.out.println(IsDisplayed);
+		  
+		  boolean IsEnabled=driver.findElement(By.xpath("//button[contains(text(),'Sign Up')]")).isEnabled();
+		  System.out.println(IsEnabled);
+		  
+		  boolean IsSelected1=driver.findElement(By.id("terms")).isSelected();
+		  System.out.println(IsSelected1);
+		  
+		  driver.findElement(By.id("terms")).click();
+		  
+		  boolean IsSelected2=driver.findElement(By.id("terms")).isSelected();
+		  System.out.println(IsSelected2);
+		  
+		  driver.get("https://freecrm.com/");
+		  
+		  WebElement FindElement=driver.findElement(By.xpath("//a[contains(text(),'Log')]"));
+		  String FindElementText=FindElement.getText();
+		  System.out.println(FindElementText);
+		  
+		  List<WebElement> FindElements=driver.findElements(By.xpath("//ul[@class='nav navbar-nav navbar-right']//descendant::li"));
+		  int FindElement_Size=FindElements.size();
+		  System.out.println(FindElement_Size);
+		  
+		  for (WebElement FindElementsWebElement : FindElements) {
+			
+			  String FindElementsWebElementText=FindElementsWebElement.getText();
+			  System.out.println("FindElementsWebElement : " + FindElementsWebElementText);
+		}
+		   //javascript click method
+		  ((JavascriptExecutor)driver).executeScript("arguments[0].click();", driver.findElement(By.xpath("//a[contains(text(),'Log')]")));
+		  
+		  
+		  List<WebElement>Links=driver.findElements(By.tagName(""));
+		  int Links_Size=Links.size();
+		  System.out.println(Links_Size);
+	 }
+}

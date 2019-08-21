@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suit name="RunFailedTestCases">
+
+<listeners>
+
+<listener class-name="seleniumTopics.Transform">
+
+
+</listener>
+
+</listeners>
+
+<test name="RunFailedTestCasesMultipleTimes">
+
+<classes>
+
+<class name="seleniumTopics.RunFailedTestCasesMultipleTimes">
+
+
+</class>
+
+</classes>
+
+</test>
+
+</suit>

@@ -1,0 +1,12 @@
+package seleniumTopics;
+
+import org.testng.annotations.Test;
+
+public class CrossBrowserTesting {
+	
+	
+	
+  @Test
+  public void f() {
+  }
+}
